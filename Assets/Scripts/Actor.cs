@@ -14,7 +14,7 @@ public class Actor : MonoBehaviour
     {
         if (hasDialog)
         {
-            dialogPlayer.InitDialog(dialog);
+            dialogPlayer.InitDialog(dialog, player);
             player.canMove = false;
         }
     }
