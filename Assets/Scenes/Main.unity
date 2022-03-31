@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 312878698}
   - component: {fileID: 312878700}
   - component: {fileID: 312878699}
+  - component: {fileID: 312878701}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -464,6 +465,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312878697}
   m_CullTransparentMesh: 1
+--- !u!95 &312878701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312878697}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 382397ed77d0b34409226f30d92ee28d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &347789035
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &347789036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -519,10 +539,28 @@ MonoBehaviour:
   dialog: {fileID: 0}
   lineText: {fileID: 1314844848}
   nameText: {fileID: 1141003761}
-  portraitImage: {fileID: 312878699}
+  portrait: {fileID: 312878697}
+  typingSpeed: 0.025
   soundManager: {fileID: 2120618032}
   writeSFX: {fileID: 8300000, guid: 10c1a23893e0b924387581cdc8762058, type: 3}
   dingSFX: {fileID: 8300000, guid: 3b25b8804da9eba4fb9e57f9d118fd22, type: 3}
+  currentLine:
+    portrait: {fileID: 0}
+    animatedPortrait: {fileID: 0}
+    name: 
+    text: 
+    nextLine: 0
+    branch:
+      name: 
+      portrait: {fileID: 0}
+      animatedPortrait: {fileID: 0}
+      options:
+      - text: 
+        nextLine: 0
+      - text: 
+        nextLine: 0
+      - text: 
+        nextLine: 0
 --- !u!1 &364400431
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,26 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - portrait: {fileID: 21300000, guid: f126242db879c604287a47395f0d1d9b, type: 3}
+    animatedPortrait: {fileID: 0}
     name: Some guy
     text: What?!
     nextLine: 0
     branch:
       name: Limon
-      portrait: {fileID: 21300000, guid: 3940e49b4fe7b794c8ebec9a9630061f, type: 3}
+      portrait: {fileID: 0}
+      animatedPortrait: {fileID: 9100000, guid: a63ab7f3746a8c64089deed7b7e8da87, type: 2}
       options:
       - text: Okay
         nextLine: -1
       - text: Stfu!
         nextLine: 1
-  - portrait: {fileID: 21300000, guid: bd4a37ea95412b0418dcf7b6297a00b1, type: 3}
+  - portrait: {fileID: 0}
+    animatedPortrait: {fileID: 9100000, guid: 382397ed77d0b34409226f30d92ee28d, type: 2}
     name: Limon
     text: Shut the fuck up! Got damn bruh!
     nextLine: 2
     branch:
       name: 
       portrait: {fileID: 0}
+      animatedPortrait: {fileID: 0}
       options: []
-  - portrait: {fileID: 21300000, guid: bd4a37ea95412b0418dcf7b6297a00b1, type: 3}
+  - portrait: {fileID: 0}
+    animatedPortrait: {fileID: 9100000, guid: 382397ed77d0b34409226f30d92ee28d, type: 2}
     name: Limon
     text: Like actually bruh. I am sick of you on gang. You better fold like an omlette
       before you are scrambled like an egg.
@@ -41,20 +46,25 @@ MonoBehaviour:
     branch:
       name: 
       portrait: {fileID: 0}
+      animatedPortrait: {fileID: 0}
       options: []
-  - portrait: {fileID: 21300000, guid: bd4a37ea95412b0418dcf7b6297a00b1, type: 3}
+  - portrait: {fileID: 0}
+    animatedPortrait: {fileID: 9100000, guid: 382397ed77d0b34409226f30d92ee28d, type: 2}
     name: Limon
     text: Okay?
     nextLine: 4
     branch:
       name: 
       portrait: {fileID: 0}
+      animatedPortrait: {fileID: 0}
       options: []
   - portrait: {fileID: 21300000, guid: f126242db879c604287a47395f0d1d9b, type: 3}
+    animatedPortrait: {fileID: 0}
     name: Some Guy
     text: ...
     nextLine: -1
     branch:
       name: 
       portrait: {fileID: 0}
+      animatedPortrait: {fileID: 0}
       options: []

@@ -10,7 +10,10 @@ public class PlayDialog : MonoBehaviour
     public Dialog dialog;
     public Text lineText;
     public Text nameText;
-    public Image portraitImage;
+
+    public GameObject portrait;
+    private Image portraitImage;
+    private Animator portraitAnimated;
 
     public float typingSpeed = .025f;
 
@@ -22,6 +25,13 @@ public class PlayDialog : MonoBehaviour
 
     bool branching = false;
     bool isTyping = false;
+
+    void Start()
+    {
+        portraitImage = portrait.GetComponent<Image>();
+        portraitAnimated = portrait.GetComponent<Animator>();
+        portraitAnimated.enabled = false;
+    }
 
 
     public void InitDialog(Dialog input, Player player)
@@ -36,12 +46,8 @@ public class PlayDialog : MonoBehaviour
         dialog = input;
 
         currentLine = dialog.lines[0];
-        portraitImage.sprite = currentLine.portrait;
-        lineText.text = "";
-        nameText.text = currentLine.name;
 
-        isTyping = true;
-        StartCoroutine(TypeWriter(0));
+        HandleDialog();
     }
 
     public void NextLine()
@@ -64,13 +70,7 @@ public class PlayDialog : MonoBehaviour
 
         currentLine = dialog.lines[currentLine.nextLine];
 
-
-        portraitImage.sprite = currentLine.portrait;
-        nameText.text = currentLine.name;
-        lineText.text = "";
-
-        isTyping = true;
-        StartCoroutine(TypeWriter(0));
+        HandleDialog();
     }
 
     void HandleBranch(Branch branch)
@@ -78,9 +78,21 @@ public class PlayDialog : MonoBehaviour
         Transform options, option;
         options = transform.GetChild(2);
 
+        portraitAnimated.enabled = false;
+
+        if (branch.animatedPortrait == null)
+            portraitImage.sprite = branch.portrait;
+        else
+        {
+            portraitAnimated.enabled = true;
+            portraitAnimated.runtimeAnimatorController = branch.animatedPortrait;
+            portraitAnimated.Rebind();
+            portraitAnimated.Update(0f);
+        }
+
+
         lineText.text = "";
         nameText.text = branch.name;
-        portraitImage.sprite = branch.portrait;
 
 
         if (branch.options.Length > 4)
@@ -124,14 +136,32 @@ public class PlayDialog : MonoBehaviour
 
         currentLine = dialog.lines[nextLine];
 
-        portraitImage.sprite = currentLine.portrait;
+        HandleDialog();
+
+
+    }
+
+    void HandleDialog()
+    {
+
+        if (currentLine.animatedPortrait == null)
+        {
+            portraitAnimated.enabled = false;
+            portraitImage.sprite = currentLine.portrait;
+        }
+        else
+        {
+            portraitAnimated.enabled = true;
+            portraitAnimated.runtimeAnimatorController = currentLine.animatedPortrait;
+            portraitAnimated.Rebind();
+            portraitAnimated.Update(0f);
+        }
+
         nameText.text = currentLine.name;
         lineText.text = "";
 
         isTyping = true;
         StartCoroutine(TypeWriter(0));
-
-
     }
 
     void Update()
