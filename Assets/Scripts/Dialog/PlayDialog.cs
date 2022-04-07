@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayDialog : MonoBehaviour
 {
-    private Player _player;
+    private Player player;
 
     public Dialog dialog;
     public Text lineText;
@@ -34,9 +34,9 @@ public class PlayDialog : MonoBehaviour
     }
 
 
-    public void InitDialog(Dialog input, Player player)
+    public void InitDialog(Dialog input, Player _player)
     {
-        _player = player;
+        player = _player;
 
         foreach(Transform child in transform)
         {
@@ -224,6 +224,6 @@ public class PlayDialog : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        _player.canMove = true;
+        player.SetState(0);
     }
 }
